@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Library/Person.fs" />
+    <Compile Include="Library/ElasticWrapper.fs" />
+    <Compile Include="Program.fs"/>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="NEST" Version="5.6.0"/>
+  </ItemGroup>
+</Project>

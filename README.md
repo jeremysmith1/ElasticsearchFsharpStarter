@@ -1,6 +1,3 @@
-# ElasticsearchFsharpStarter
-Starter project for elasticsearch and F#
-
 This project demos pushing data into elasticsearch with F#. Included with starter code, there is also a docker-compose for setting up a cluster quickly.
 
 Dependencies:
