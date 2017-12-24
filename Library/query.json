@@ -1,0 +1,49 @@
+{
+    "Meta Data": {
+        "1. Information": "Daily Prices and Volumes for Digital Currency",
+        "2. Digital Currency Code": "BTC",
+        "3. Digital Currency Name": "Bitcoin",
+        "4. Market Code": "USD",
+        "5. Market Name": "United States Dollar",
+        "6. Last Refreshed": "2017-12-21 (end of day)",
+        "7. Time Zone": "UTC"
+    },
+    "Time Series (Digital Currency Daily)": {
+        "2017-12-21": {
+            "1a. open (USD)": "16502.59062440",
+            "1b. open (USD)": "16502.59062440",
+            "2a. high (USD)": "17322.12442717",
+            "2b. high (USD)": "17322.12442717",
+            "3a. low (USD)": "15121.79894831",
+            "3b. low (USD)": "15121.79894831",
+            "4a. close (USD)": "15589.54582667",
+            "4b. close (USD)": "15589.54582667",
+            "5. volume": "146566.73044519",
+            "6. market cap (USD)": "2284908760.94103718"
+        },
+        "2017-12-20": {
+            "1a. open (USD)": "17582.84116783",
+            "1b. open (USD)": "17582.84116783",
+            "2a. high (USD)": "17832.24002040",
+            "2b. high (USD)": "17832.24002040",
+            "3a. low (USD)": "15673.08154859",
+            "3b. low (USD)": "15673.08154859",
+            "4a. close (USD)": "16463.58187342",
+            "4b. close (USD)": "16463.58187342",
+            "5. volume": "208577.79061596",
+            "6. market cap (USD)": "3433937532.78220034"
+        },
+        "2017-12-19": {
+            "1a. open (USD)": "18975.63458171",
+            "1b. open (USD)": "18975.63458171",
+            "2a. high (USD)": "19028.00237962",
+            "2b. high (USD)": "19028.00237962",
+            "3a. low (USD)": "16944.07950630",
+            "3b. low (USD)": "16944.07950630",
+            "4a. close (USD)": "17515.57797594",
+            "4b. close (USD)": "17515.57797594",
+            "5. volume": "160701.65540851",
+            "6. market cap (USD)": "2814782376.17097712"
+        }
+    }
+}

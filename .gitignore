@@ -24,3 +24,6 @@ obj/Debug/netcoreapp2.0/_ElasticTalk.fsproj.FileListAbsolute.txt
 obj/Debug/netcoreapp2.0/ElasticDemo.dll
 obj/Debug/netcoreapp2.0/ElasticDemo.pdb
 obj/Debug/netcoreapp2.0/ElasticDemo.fsproj.FileListAbsolute.txt
+Secrets.fs
+.vscode/launch.json
+.vscode/tasks.json
