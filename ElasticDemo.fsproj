@@ -4,17 +4,19 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Secrets.fs"/>
-    <Compile Include="ElasticTypes/Person.fs"/>
-    <Compile Include="ElasticTypes/CurrencyModels.fs"/>
-    <Compile Include="Library/ElasticWrapper.fs"/>
-    <Compile Include="Library/AlphaAdvantageWrapper.fs"/>
-    <Compile Include="Program.fs"/>
+    <Compile Include="Secrets.fs" />
+    <Compile Include="ElasticTypes/Person.fs" />
+    <Compile Include="ElasticTypes/ESCurrencyModel.fs" />
+    <Compile Include="Library/ElasticWrapper.fs" />
+    <Compile Include="Library/AlphaAdvantageWrapper.fs" />
+    <Compile Include="Program.fs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="NEST" Version="5.6.0"/>
-    <PackageReference Include="RestSharp" Version="106.1.0"/>
-    <PackageReference Include="FSharp.Data" Version="2.4.3"/>
-    <PackageReference Include="Newtonsoft.Json" Version="10.0.3"/>
+    <PackageReference Include="NEST" Version="5.6.0" />
+    <PackageReference Include="RestSharp" Version="106.1.0" />
+    <PackageReference Include="FSharp.Data" Version="2.4.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="CSharpJsonModel\CurrencyModel.csproj" />
   </ItemGroup>
 </Project>

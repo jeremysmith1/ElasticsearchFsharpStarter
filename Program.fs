@@ -1,22 +1,33 @@
 ﻿open ElasticWrapper
 open Person
 open AlphaAdv
+open Newtonsoft.Json
+open CurrencyModel
+open System
+open ESCurrencyModel
 
 [<EntryPoint>]
 let main argv =
 
     let values = { nameOfFunction= FunctionTypes.Daily; symbol= SymbolTypes.Bitcoin; market= MarketTypes.UnitedStatesDollar; }
+    //todo: handle better
+    let symbolString = symbolStringFromSymbol values.symbol
+    let marketString = marketStringFromMarketType values.market
 
     let response = DigitalCurrencyRequest values
 
-    let currencyClient = elasticsearchClientDefault "bitcoin"
+    let jsonClient= JsonConvert.DeserializeObject<Empty>(response) 
 
-    let testPerson = {Id=7; FirstName="Porky"; LastName="Pig"}
+    let cryptoModel = jsonClient.TimeSeriesDigitalCurrencyDaily 
+                        |> Seq.map (fun (KeyValue(k,v)) -> 
+                            {Date = k; Datum = v; Symbol = symbolString; Market= marketString})
 
-    let peopleClient = elasticsearchClientDefault "people"
+    let currencyClient = elasticsearchClientDefault (symbolString.ToLower())
 
-    match insertPerson peopleClient testPerson with
-    | true -> printfn "Successfully Added:\n %A" testPerson
-    | false -> printfn "Could Not Add: %A" testPerson
+    let result = BulkInsertCrypto currencyClient cryptoModel
+
+    match result with
+    | true -> printfn "Successfully Added"
+    | false -> printfn "Could Not Add"
 
     0 // return an integer exit code

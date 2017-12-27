@@ -2,6 +2,7 @@ module AlphaAdv
 
 open RestSharp
 open Secrets
+
 let APIKey = AlphaAdvantageKey
 
 //Consider using the CSV instead of naming explicitly
@@ -35,14 +36,6 @@ let marketStringFromMarketType marketType =
 type DigitalCurrencyParam = { nameOfFunction: FunctionTypes; symbol: SymbolTypes; market: MarketTypes; }
 
 let AlphaAdvClient = RestClient("https://www.alphavantage.co")
-
-// type ResponseObject = 
-//     { [<JsonField("Time Series (Digital Currency Daily)")>] timeSeries: TimeSeries} 
-// and TimeSeries = {baseobject: string; [<JsonField("1a. open (USD)")>] openValue: float; }
-
-// let convertStringToObject str =
-//     Json.deserialize str 
-
 let DigitalCurrencyRequest args =
     let functionString = functionStringFromFunType args.nameOfFunction
     let symbolString = symbolStringFromSymbol args.symbol
