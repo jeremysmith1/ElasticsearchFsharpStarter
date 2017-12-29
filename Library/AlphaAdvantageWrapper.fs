@@ -33,12 +33,14 @@ let marketStringFromMarketType marketType =
     | MarketTypes.IndianRupee -> "INR"
     | _ -> "unkown"
 
-type DigitalCurrencyParam = { nameOfFunction: FunctionTypes; symbol: SymbolTypes; market: MarketTypes; }
+type DigitalCurrencyParam = { nameOfFunction: FunctionTypes; symbol: string; market: MarketTypes; indexName: string }
+
+
 
 let AlphaAdvClient = RestClient("https://www.alphavantage.co")
 let DigitalCurrencyRequest args =
     let functionString = functionStringFromFunType args.nameOfFunction
-    let symbolString = symbolStringFromSymbol args.symbol
+    let symbolString = args.symbol
     let marketString = marketStringFromMarketType args.market
 
     let queryString = sprintf "query?function=%s&symbol=%s&market=%s&apikey=%s" 
@@ -48,7 +50,4 @@ let DigitalCurrencyRequest args =
 
     let response = AlphaAdvClient.Execute request
 
-    // convertStringToObject 
     response.Content
-
-

@@ -8,7 +8,7 @@ namespace CurrencyModel
 
     using Newtonsoft.Json;
 
-    public partial class Empty
+    public partial class CryptoModel
     {
         [JsonProperty("Meta Data")]
         public MetaData MetaData { get; set; }
