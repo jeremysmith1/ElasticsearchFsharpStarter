@@ -13,11 +13,11 @@ namespace CurrencyModel
         [JsonProperty("Meta Data")]
         public MetaData MetaData { get; set; }
 
-        [JsonProperty("Time Series (Digital Currency Daily)")]
-        public Dictionary<string, TimeSeriesDigitalCurrencyDaily> TimeSeriesDigitalCurrencyDaily { get; set; }
+        [JsonProperty("Time Series (Digital Currency Intraday)")]
+        public Dictionary<string, TimeSeriesDigitalCurrencyIntraday> TimeSeriesDigitalCurrencyIntraday { get; set; }
     }
 
-    public partial class TimeSeriesDigitalCurrencyDaily
+    public partial class TimeSeriesDigitalCurrencyIntraday
     {
         [JsonProperty("1a. open (USD)")]
         public decimal The1AOpenUsd { get; set; }

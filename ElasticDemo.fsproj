@@ -8,6 +8,7 @@
     <Compile Include="ElasticTypes/Person.fs" />
     <Compile Include="ElasticTypes/ESCurrencyModel.fs" />
     <Compile Include="Library/ElasticWrapper.fs" />
+    <Compile Include="Library/MessageRestClient.fs" />
     <Compile Include="Library/AlphaAdvantageWrapper.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>

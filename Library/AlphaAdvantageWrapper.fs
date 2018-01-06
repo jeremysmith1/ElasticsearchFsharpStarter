@@ -1,32 +1,24 @@
 module AlphaAdv
 
-open RestSharp
+open MessageRestClient
 open Secrets
 
 let APIKey = AlphaAdvantageKey
 
-//Consider using the CSV instead of naming explicitly
 type FunctionTypes = | IntraDaily = 1 | Daily = 2
 
-let functionStringFromFunType funType =
+let functionStringFromFunType =
+    fun funType ->
     match funType with
     | FunctionTypes.IntraDaily -> "DIGITAL_CURRENCY_INTRADAY"
     | FunctionTypes.Daily -> "DIGITAL_CURRENCY_DAILY"
     | _ -> "unkown"
 
-type SymbolTypes = | Bitcoin = 1 | Dogecoin = 2 | Ethereum = 3 | Litecoin = 4
-
-let symbolStringFromSymbol currencyType =
-    match currencyType with
-    | SymbolTypes.Bitcoin -> "BTC"
-    | SymbolTypes.Dogecoin -> "DOGE"
-    | SymbolTypes.Ethereum -> "ETH"
-    | SymbolTypes.Litecoin -> "LTC"
-    | _ -> "unkown"
 
 type MarketTypes = | UnitedStatesDollar = 1 | BritishPoundSterling = 2 | IndianRupee = 3
 
-let marketStringFromMarketType marketType =
+let marketStringFromMarketType =
+    fun marketType ->
     match marketType with
     | MarketTypes.UnitedStatesDollar -> "USD"
     | MarketTypes.BritishPoundSterling -> "GBP"
@@ -34,20 +26,15 @@ let marketStringFromMarketType marketType =
     | _ -> "unkown"
 
 type DigitalCurrencyParam = { nameOfFunction: FunctionTypes; symbol: string; market: MarketTypes; indexName: string }
-
-
-
-let AlphaAdvClient = RestClient("https://www.alphavantage.co")
-let DigitalCurrencyRequest args =
+     
+let DigitalCurrencyRequest =
+    fun args ->
     let functionString = functionStringFromFunType args.nameOfFunction
     let symbolString = args.symbol
     let marketString = marketStringFromMarketType args.market
 
     let queryString = sprintf "query?function=%s&symbol=%s&market=%s&apikey=%s" 
                         functionString symbolString marketString APIKey
-                       
-    let request = RestRequest queryString
 
-    let response = AlphaAdvClient.Execute request
-
-    response.Content
+    MessageBasedRestClient.MakeRequest queryString 
+    |> Async.RunSynchronously
