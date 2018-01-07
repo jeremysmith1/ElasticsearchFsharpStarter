@@ -28,4 +28,4 @@ type MessageBasedRestClient () =
 
         requestLoop
    )
-   static member MakeRequest i = agent.PostAndAsyncReply(fun replyChannel -> i, replyChannel)
+   static member MakeAlphaAdvRequest i = agent.PostAndAsyncReply(fun replyChannel -> i, replyChannel)

@@ -10,6 +10,7 @@
     <Compile Include="Library/ElasticWrapper.fs" />
     <Compile Include="Library/MessageRestClient.fs" />
     <Compile Include="Library/AlphaAdvantageWrapper.fs" />
+    <Compile Include="InternetBackup/BackupPlan.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace CurrencyModel
+﻿namespace CurrencyModel
 {
     using System;
     using System.Net;

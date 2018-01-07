@@ -30,11 +30,19 @@ type DigitalCurrencyParam = { nameOfFunction: FunctionTypes; symbol: string; mar
 let DigitalCurrencyRequest =
     fun args ->
     let functionString = functionStringFromFunType args.nameOfFunction
-    let symbolString = args.symbol
     let marketString = marketStringFromMarketType args.market
 
     let queryString = sprintf "query?function=%s&symbol=%s&market=%s&apikey=%s" 
-                        functionString symbolString marketString APIKey
+                        functionString args.symbol marketString APIKey
 
-    MessageBasedRestClient.MakeRequest queryString 
+    MessageBasedRestClient.MakeAlphaAdvRequest queryString 
     |> Async.RunSynchronously
+
+let BuildRequestFromCurrenceySymbols =  
+    fun currencySymbols -> currencySymbols 
+                        |> Seq.map (fun symbol ->  
+                                    {   nameOfFunction= FunctionTypes.IntraDaily;
+                                        symbol= (fst symbol); 
+                                        market= MarketTypes.UnitedStatesDollar;
+                                        indexName = (snd symbol) })
+                        |> Seq.toList
