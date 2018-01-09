@@ -4,11 +4,10 @@ open Newtonsoft.Json
 open CurrencyModel
 open System
 open ESCurrencyModel
-open BackupPlan
 
 [<EntryPoint>]
 let main argv =
-
+//fira code
     //Retrieve all Currency symbols we can collect (currency code,currency name)
     let currencySymbols = 
         IO.File.ReadLines(@".\Resource\CurrencySymbols.csv") 

@@ -15,39 +15,6 @@
         public Dictionary<string, TimeSeriesDigitalCurrencyIntraday> TimeSeriesDigitalCurrencyIntraday { get; set; }
     }
 
-    public partial class TimeSeriesDigitalCurrencyIntraday
-    {
-        [JsonProperty("1a. open (USD)")]
-        public decimal The1AOpenUsd { get; set; }
-
-        [JsonProperty("1b. open (USD)")]
-        public decimal The1BOpenUsd { get; set; }
-
-        [JsonProperty("2a. high (USD)")]
-        public decimal The2AHighUsd { get; set; }
-
-        [JsonProperty("2b. high (USD)")]
-        public decimal The2BHighUsd { get; set; }
-
-        [JsonProperty("3a. low (USD)")]
-        public decimal The3ALowUsd { get; set; }
-
-        [JsonProperty("3b. low (USD)")]
-        public decimal The3BLowUsd { get; set; }
-
-        [JsonProperty("4a. close (USD)")]
-        public decimal The4ACloseUsd { get; set; }
-
-        [JsonProperty("4b. close (USD)")]
-        public decimal The4BCloseUsd { get; set; }
-
-        [JsonProperty("5. volume")]
-        public decimal The5Volume { get; set; }
-
-        [JsonProperty("6. market cap (USD)")]
-        public decimal The6MarketCapUsd { get; set; }
-    }
-
     public partial class MetaData
     {
         [JsonProperty("1. Information")]
@@ -65,11 +32,29 @@
         [JsonProperty("5. Market Name")]
         public string The5MarketName { get; set; }
 
-        [JsonProperty("6. Last Refreshed")]
-        public string The6LastRefreshed { get; set; }
+        [JsonProperty("6. Interval")]
+        public string The6Interval { get; set; }
 
-        [JsonProperty("7. Time Zone")]
-        public string The7TimeZone { get; set; }
+        [JsonProperty("7. Last Refreshed")]
+        public string The7LastRefreshed { get; set; }
+
+        [JsonProperty("8. Time Zone")]
+        public string The8TimeZone { get; set; }
+    }
+
+    public partial class TimeSeriesDigitalCurrencyIntraday
+    {
+        [JsonProperty("1a. price (USD)")]
+        public string The1APriceUsd { get; set; }
+
+        [JsonProperty("1b. price (USD)")]
+        public string The1BPriceUsd { get; set; }
+
+        [JsonProperty("2. volume")]
+        public string The2Volume { get; set; }
+
+        [JsonProperty("3. market cap (USD)")]
+        public string The3MarketCapUsd { get; set; }
     }
 
     public partial class Empty
