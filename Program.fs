@@ -14,20 +14,13 @@ let main argv =
         |> Seq.skip 1 //Skip column labels
         |> Seq.map ((fun (line: string) -> line.Split ',') 
         >> (fun (values: string[]) -> (values.[0], values.[1]))) 
-
-    let convertResponse =
-        fun singleResponse -> 
-        let convertedObj = JsonConvert.DeserializeObject<CryptoModel>(singleResponse) 
-        if isNull convertedObj.MetaData 
-        then None 
-        else Some convertedObj
-
+    
     for request in (BuildRequestFromCurrenceySymbols currencySymbols) do
         DigitalCurrencyRequest request 
-        |> convertResponse 
+        |> TryParseDatum 
         |> convertToESDatum request.symbol
         |> BulkInsertWithGivenIndex request.indexName
-        |> Console.WriteLine
+        |> ignore
 
 
     // for file in BackupPlan.JsonDataCollection do

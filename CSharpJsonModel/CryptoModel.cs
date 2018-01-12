@@ -45,16 +45,16 @@
     public partial class TimeSeriesDigitalCurrencyIntraday
     {
         [JsonProperty("1a. price (USD)")]
-        public string The1APriceUsd { get; set; }
+        public decimal The1APriceUsd { get; set; }
 
         [JsonProperty("1b. price (USD)")]
-        public string The1BPriceUsd { get; set; }
+        public decimal The1BPriceUsd { get; set; }
 
         [JsonProperty("2. volume")]
-        public string The2Volume { get; set; }
+        public decimal The2Volume { get; set; }
 
         [JsonProperty("3. market cap (USD)")]
-        public string The3MarketCapUsd { get; set; }
+        public decimal The3MarketCapUsd { get; set; }
     }
 
     public partial class Empty
