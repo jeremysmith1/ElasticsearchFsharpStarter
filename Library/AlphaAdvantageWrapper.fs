@@ -41,7 +41,7 @@ let DigitalCurrencyRequest =
 let BuildRequestFromCurrenceySymbols =  
     fun currencySymbols -> currencySymbols 
                         |> Seq.map (fun symbol ->  
-                                    {   nameOfFunction= FunctionTypes.IntraDaily;
+                                    {   nameOfFunction= FunctionTypes.Daily;
                                         symbol= (fst symbol); 
                                         market= MarketTypes.UnitedStatesDollar;
                                         indexName = (snd symbol) })

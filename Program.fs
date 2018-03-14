@@ -1,13 +1,10 @@
 ﻿open ElasticWrapper
 open AlphaAdv
-open Newtonsoft.Json
-open CurrencyModel
 open System
 open ESCurrencyModel
 
 [<EntryPoint>]
 let main argv =
-//fira code
     //Retrieve all Currency symbols we can collect (currency code,currency name)
     let currencySymbols = 
         IO.File.ReadLines(@".\Resource\CurrencySymbols.csv") 
@@ -20,7 +17,7 @@ let main argv =
         |> TryParseDatum 
         |> convertToESDatum request.symbol
         |> BulkInsertWithGivenIndex request.indexName
-        |> ignore
+        |> Console.WriteLine
 
 
     // for file in BackupPlan.JsonDataCollection do
